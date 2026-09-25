@@ -1,0 +1,50 @@
+name: PR Summary
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  summarize:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Generate PR Summary
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pr = context.payload.pull_request;
+            const fs = require('fs');
+            
+            // Get file changes
+            const { data: files } = await github.rest.pulls.listFiles({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: pr.number,
+            });
+            
+            // Build summary
+            let summary = `## 📋 What You're About to Merge\n\n`;
+            summary += `**Title:** ${pr.title}\n\n`;
+            summary += `**Description:**\n${pr.body || '_No description provided_'}\n\n`;
+            summary += `**Stats:** ${pr.additions} additions, ${pr.deletions} deletions across ${files.length} files\n\n`;
+            
+            summary += `**Files Changed:**\n`;
+            files.forEach(file => {
+              summary += `- \`${file.filename}\` (+${file.additions}, -${file.deletions})\n`;
+            });
+            
+            summary += `\n**Status:** ${pr.draft ? '🔄 Draft' : '✅ Ready for review'}\n`;
+            summary += `**Mergeable:** ${pr.mergeable ? '✅ Yes' : '❌ No'}\n`;
+            
+            // Post comment
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: pr.number,
+              body: summary
+            })
