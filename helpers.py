@@ -61,24 +61,6 @@ class PracticeHelpers:
             raise ValueError("minimum must not be greater than maximum")
         return max(minimum, min(value, maximum))
 
-    def is_prime(self, number: int) -> bool:
-        if number < 2:
-            return False
-        for divisor in range(2, int(number**0.5) + 1):
-            if number % divisor == 0:
-                return False
-        return True
-
-    def calculate_average(self, numbers: list[float]) -> float:
-        if not numbers:
-            raise ValueError("numbers must not be empty")
-        return sum(numbers) / len(numbers)
-
-    def clamp(self, value: float, minimum: float, maximum: float) -> float:
-        if minimum > maximum:
-            raise ValueError("minimum must not be greater than maximum")
-        return max(minimum, min(value, maximum))
-
     def fibonacci(self, count: int) -> list[int]:
         if count < 0:
             raise ValueError("count must not be negative")

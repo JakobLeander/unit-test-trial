@@ -93,3 +93,46 @@ def test_clamp(helpers, value, minimum, maximum, expected):
 def test_clamp_rejects_reversed_bounds(helpers):
     with pytest.raises(ValueError, match="maximum"):
         helpers.clamp(5, 10, 0)
+
+
+@pytest.mark.parametrize(
+    "count, expected",
+    [(0, []), (1, [0]), (5, [0, 1, 1, 2, 3])],
+)
+def test_fibonacci(helpers, count, expected):
+    assert helpers.fibonacci(count) == expected
+
+
+def test_fibonacci_rejects_negative_counts(helpers):
+    with pytest.raises(ValueError, match="negative"):
+        helpers.fibonacci(-1)
+
+
+@pytest.mark.parametrize(
+    "first, second, expected",
+    [("listen", "silent", True), ("Dormitory", "dirty room", True), ("python", "pytest", False)],
+)
+def test_is_anagram(helpers, first, second, expected):
+    assert helpers.is_anagram(first, second) is expected
+
+
+@pytest.mark.parametrize("text, expected", [("one two three", 3), ("", 0), ("  one   two  ", 2)])
+def test_count_words(helpers, text, expected):
+    assert helpers.count_words(text) == expected
+
+
+def test_calculate_percentage(helpers):
+    assert helpers.calculate_percentage(25, 200) == pytest.approx(12.5)
+
+
+def test_calculate_percentage_rejects_zero_total(helpers):
+    with pytest.raises(ValueError, match="zero"):
+        helpers.calculate_percentage(1, 0)
+
+
+@pytest.mark.parametrize(
+    "values, positions, expected",
+    [([], 2, []), (["a", "b", "c"], 0, ["a", "b", "c"]), (["a", "b", "c"], 1, ["c", "a", "b"]), (["a", "b", "c"], -1, ["b", "c", "a"])],
+)
+def test_rotate_list(helpers, values, positions, expected):
+    assert helpers.rotate_list(values, positions) == expected
