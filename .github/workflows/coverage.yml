@@ -20,7 +20,7 @@ jobs:
           pip install pytest pytest-cov
       
       - name: Run tests with coverage
-        run: pytest --cov=. --cov-report=term-missing --cov-report=xml
+        run: python -m pytest --cov=. --cov-report=term-missing --cov-report=xml
       
       - name: Check coverage threshold
         run: |
