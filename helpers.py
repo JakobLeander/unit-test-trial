@@ -42,3 +42,21 @@ class PracticeHelpers:
         for word in text.lower().split():
             frequency[word] = frequency.get(word, 0) + 1
         return frequency
+
+    def is_prime(self, number: int) -> bool:
+        if number < 2:
+            return False
+        for divisor in range(2, int(number**0.5) + 1):
+            if number % divisor == 0:
+                return False
+        return True
+
+    def calculate_average(self, numbers: list[float]) -> float:
+        if not numbers:
+            raise ValueError("numbers must not be empty")
+        return sum(numbers) / len(numbers)
+
+    def clamp(self, value: float, minimum: float, maximum: float) -> float:
+        if minimum > maximum:
+            raise ValueError("minimum must not be greater than maximum")
+        return max(minimum, min(value, maximum))

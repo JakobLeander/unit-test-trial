@@ -39,5 +39,8 @@ print(helpers.add_numbers(2, 3))
 - `celsius_to_fahrenheit`: Converts Celsius to Fahrenheit.
 - `is_palindrome`: Checks whether text reads the same forwards and backwards.
 - `word_frequency`: Counts case-insensitive words in a string.
+- `is_prime`: Checks whether an integer is prime.
+- `calculate_average`: Calculates the average of a non-empty list of numbers.
+- `clamp`: Restricts a value to a minimum and maximum range.
 
 Try testing normal inputs, boundary values, empty inputs, invalid inputs, and mixed or unexpected values.
