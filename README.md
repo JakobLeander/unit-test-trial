@@ -1,0 +1,43 @@
+# Unit Test Practice
+
+This project contains small Python helper functions for practicing unit testing. The unit tests are intentionally left for you to write.
+
+## Setup
+
+Create the virtual environment if it does not already exist:
+
+```bash
+python3 -m venv .venv
+```
+
+Activate it on Linux or macOS:
+
+```bash
+source .venv/bin/activate
+```
+
+## Usage
+
+Import `PracticeHelpers` from `helpers.py`:
+
+```python
+from helpers import PracticeHelpers
+
+helpers = PracticeHelpers()
+print(helpers.add_numbers(2, 3))
+```
+
+## Available Helpers
+
+- `add_numbers`: Adds two numbers.
+- `is_even`: Checks whether an integer is even.
+- `reverse_text`: Reverses a string.
+- `count_vowels`: Counts vowels in a string.
+- `factorial`: Calculates a factorial and rejects negative values.
+- `find_maximum`: Finds the largest number and rejects empty lists.
+- `remove_duplicates`: Removes duplicate strings while preserving order.
+- `celsius_to_fahrenheit`: Converts Celsius to Fahrenheit.
+- `is_palindrome`: Checks whether text reads the same forwards and backwards.
+- `word_frequency`: Counts case-insensitive words in a string.
+
+Try testing normal inputs, boundary values, empty inputs, invalid inputs, and mixed or unexpected values.
