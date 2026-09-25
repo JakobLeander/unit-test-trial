@@ -55,9 +55,3 @@ print(helpers.add_numbers(2, 3))
 - `rotate_list`: Rotates list values by a requested number of positions.
 
 Try testing normal inputs, boundary values, empty inputs, invalid inputs, and mixed or unexpected values.
-
-Run the test suite with:
-
-```bash
-python -m pytest
-```
