@@ -16,6 +16,12 @@ Activate it on Linux or macOS:
 source .venv/bin/activate
 ```
 
+Install the development dependencies:
+
+```bash
+python -m pip install -r requirements-dev.txt
+```
+
 ## Usage
 
 Import `PracticeHelpers` from `helpers.py`:
@@ -44,3 +50,9 @@ print(helpers.add_numbers(2, 3))
 - `clamp`: Restricts a value to a minimum and maximum range.
 
 Try testing normal inputs, boundary values, empty inputs, invalid inputs, and mixed or unexpected values.
+
+Run the test suite with:
+
+```bash
+python -m pytest
+```
