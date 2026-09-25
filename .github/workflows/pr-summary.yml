@@ -45,7 +45,7 @@ jobs:
             });
 
             const marker = '<!-- auto-generated-pr-description -->';
-            if (!pr.body) {
+            if (!pr.body || pr.body.includes(marker)) {
               let description = `${marker}\n`;
               description += '## Summary\n\n';
               description += `This pull request changes ${files.length} file(s), with ${pr.additions} additions and ${pr.deletions} deletions.\n\n`;
