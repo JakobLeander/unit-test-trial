@@ -39,8 +39,7 @@ jobs:
             });
             
             summary += `\n**Status:** ${pr.draft ? '🔄 Draft' : '✅ Ready for review'}\n`;
-            summary += `**Mergeable:** ${pr.mergeable ? '✅ Yes' : '❌ No'}\n`;
-            
+                        
             // Post comment
             await github.rest.issues.createComment({
               owner: context.repo.owner,
