@@ -60,3 +60,32 @@ class PracticeHelpers:
         if minimum > maximum:
             raise ValueError("minimum must not be greater than maximum")
         return max(minimum, min(value, maximum))
+
+    def fibonacci(self, count: int) -> list[int]:
+        if count < 0:
+            raise ValueError("count must not be negative")
+
+        sequence: list[int] = []
+        first, second = 0, 1
+        for _ in range(count):
+            sequence.append(first)
+            first, second = second, first + second
+        return sequence
+
+    def is_anagram(self, first: str, second: str) -> bool:
+        normalize = lambda text: sorted(character.lower() for character in text if character.isalnum())
+        return normalize(first) == normalize(second)
+
+    def count_words(self, text: str) -> int:
+        return len(text.split())
+
+    def calculate_percentage(self, part: float, total: float) -> float:
+        if total == 0:
+            raise ValueError("total must not be zero")
+        return (part / total) * 100
+
+    def rotate_list(self, values: list[str], positions: int) -> list[str]:
+        if not values:
+            return []
+        offset = positions % len(values)
+        return values[-offset:] + values[:-offset] if offset else values[:]

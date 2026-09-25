@@ -48,6 +48,11 @@ print(helpers.add_numbers(2, 3))
 - `is_prime`: Checks whether an integer is prime.
 - `calculate_average`: Calculates the average of a non-empty list of numbers.
 - `clamp`: Restricts a value to a minimum and maximum range.
+- `fibonacci`: Generates a Fibonacci sequence with a requested number of values.
+- `is_anagram`: Checks whether two strings contain the same normalized characters.
+- `count_words`: Counts whitespace-separated words in a string.
+- `calculate_percentage`: Calculates what percentage one value is of another.
+- `rotate_list`: Rotates list values by a requested number of positions.
 
 Try testing normal inputs, boundary values, empty inputs, invalid inputs, and mixed or unexpected values.
 
